@@ -10,4 +10,4 @@
 
 # WRITE CODE HERE:
 
-print("Hello World I love python!")
+print("Hello World I love Python!")
