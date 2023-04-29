@@ -9,3 +9,7 @@ the message that the user will see should be: <name>, for board size <board_size
 name = input("Hello, whats your name?")
 board_size = int(input(f"{name}, please choose board size:"))
 """
+
+player_name = input('Hello, whats your name?')
+board_size = int(input(player_name+', please choose board size:'))
+number_of_mines = int(input(player_name+', for board size '+ str(board_size)+ ', choose number of mines to allocate:'))

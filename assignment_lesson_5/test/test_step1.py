@@ -9,9 +9,9 @@ class TestUi(unittest.TestCase):
     def test_sanity(self, mock_input, mock_stdout):
         import project.ui.user_interaction as test_file
         self.assertEqual(len(mock_input.call_args_list), 3, msg="בפרק זה נדרש לקבל 3 קלטים בדיוק מהמשתמש, להשתמש 3 פעמים בפונקציה input")
-        self.assertEqual(mock_input.call_args_list[0].args[0], "Hello, whats your name?")
-        self.assertEqual(mock_input.call_args_list[1].args[0], "Michael, please choose board size:")
-        self.assertEqual(mock_input.call_args_list[2].args[0],
+        self.assertEqual(mock_input.call_args_list[0][0][0], "Hello, whats your name?")
+        self.assertEqual(mock_input.call_args_list[1][0][0], "Michael, please choose board size:")
+        self.assertEqual(mock_input.call_args_list[2][0][0],
                          "Michael, for board size 9, choose number of mines to allocate:")
         self.assertEqual(test_file.player_name, 'Michael')
         self.assertEqual(test_file.board_size, 9)
