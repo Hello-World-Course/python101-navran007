@@ -1,15 +1,19 @@
-""" TODO write a program that will:
-1. gets name from user and stores it in variable called name
-the message that the user will see should be: Hello, whats your name?
-2. gets the board size from the user and stores in variable called board_size, the value should be an **integer**
-the message that the user will see should be: <name>, please choose board size:
-3. gets the required number of mines and stores in variable called number_of_mines this is also should be an integer
-the message that the user will see should be: <name>, for board size <board_size>, choose number of mines to allocate:
-4. print summery of all data
-name = input("Hello, whats your name?")
-board_size = int(input(f"{name}, please choose board size:"))
-"""
+player_name = None
+board_size = None
+number_of_mines = None
 
-player_name = input('Hello, whats your name?')
-board_size = int(input(player_name+', please choose board size:'))
-number_of_mines = int(input(player_name+', for board size '+ str(board_size)+ ', choose number of mines to allocate:'))
+temp_name = input("Hello, whats your name?")
+if len(temp_name) > 1:
+    player_name = temp_name
+    temp_board_size = int(input(f"{player_name}, please choose board size:"))
+    if 0 < temp_board_size < 64:
+        board_size = temp_board_size
+        temp_number_of_mines = int(input(f"{player_name}, for board size {board_size}, choose number of mines to allocate:"))
+        if 0 < temp_number_of_mines < 0.5 * board_size * board_size:
+            number_of_mines = temp_number_of_mines
+        else:
+            print(f"{player_name}, you entered illegal number of mines")
+    else:
+        print(f"{player_name}, you entered illegal board size")
+else:
+    print("Your name is too short")
