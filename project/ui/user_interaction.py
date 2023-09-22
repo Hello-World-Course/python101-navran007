@@ -1,0 +1,5 @@
+name = input('Hello, whats your name?')
+board_size_as_str = input(f'{name}, please choose board size')
+boardo_size = int(board_size_as_str)
+number_of_mines = input(f'{name}, for board size {boardo_size}, choose number of mines to allocate')
+print(f'player_name: {name}, board_size: {boardo_size}, num_of_mines: {number_of_mines}')
