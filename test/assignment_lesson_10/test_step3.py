@@ -87,7 +87,7 @@ class TestStep3(AssignmentTester):
 
     @devin_test_decorator
     @mock.patch('builtins.input', side_effect=['Dan', '9', '40'])
-    def test_3_number_of_mines_1(self,mock_input, message):
+    def test_3_number_of_mines_1(self, mock_input, message):
         # test
         ######
         import project.ui.user_interaction as user_interaction
@@ -167,13 +167,13 @@ class TestStep3(AssignmentTester):
         import project.ui.user_interaction as user_interaction
         user_interaction.register_user()
         # verify
-        expected_result = "Dan, you entered illegal board size\n"
+        expected_result = "Dan, you have entered illegal board size\n"
         real_result = mock_stdout.getvalue()
         self.assertEqualWithMessage(real_result, expected_result, msg=message)
 
     @devin_test_decorator
     @mock.patch('sys.stdout', new_callable=io.StringIO)
-    @mock.patch('builtins.input', side_effect=['Dan', '9', '2'])
+    @mock.patch('builtins.input', side_effect=['Dan', '9', '41'])
     def test_full_interaction_wrong_mines_verify_return(self, mock_input, mock_stdout, message):
         # test
         ######
@@ -185,17 +185,16 @@ class TestStep3(AssignmentTester):
 
     @devin_test_decorator
     @mock.patch('sys.stdout', new_callable=io.StringIO)
-    @mock.patch('builtins.input', side_effect=['Dan', '9', '2'])
+    @mock.patch('builtins.input', side_effect=['Dan', '9', '41'])
     def test_full_interaction_wrong_mines_verify_output(self, mock_input, mock_stdout, message):
         # test
         ######
         import project.ui.user_interaction as user_interaction
         user_interaction.register_user()
         # verify
-        expected_result = "Dan, you entered illegal number of mines\n"
+        expected_result = "Dan, you have entered illegal number of mines\n"
         real_result = mock_stdout.getvalue()
         self.assertEqualWithMessage(real_result, expected_result, msg=message)
-
 
     @devin_test_decorator
     @mock.patch('sys.stdout', new_callable=io.StringIO)
