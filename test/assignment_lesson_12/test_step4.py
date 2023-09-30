@@ -1,7 +1,7 @@
 import sys
 from unittest import mock
 
-from test_base.test_base import AssignmentTester, Message
+from test_base.test_base import AssignmentTester
 from test_base.test_decorator import devin_test_decorator
 
 
@@ -57,7 +57,7 @@ class Step4(AssignmentTester):
         board = board_functions.create_empty_board(2, "_")
 
         expected_result = '   A B \n0 |_|_|\n1 |_|_|\n'
-        real_result = board_ui.draw_board(board, 20)
+        real_result = board_ui.draw_board(board)
         # verify
         message.explanation = {'value': 'CODE_MISMATCH'}
         self.assertEqualWithMessage(real_result, expected_result, msg=message)
